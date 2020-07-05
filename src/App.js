@@ -7,10 +7,11 @@ function App() {
   const [deaths, setDeaths] = useState(0);
 
   useEffect(() => {
-    async function getData() {
-      await callApi();
-    }
-    getData();
+    const myData = async () => {
+      const data = await callApi();
+      console.log(data);
+    };
+    myData();
   });
 
   return (
