@@ -9,7 +9,8 @@ function App() {
 
   useEffect(() => {
     const myData = async () => {
-      setCovidData(await callApi());
+      const data = await callApi();
+      setCovidData(data);
     };
     myData();
   }, []);
