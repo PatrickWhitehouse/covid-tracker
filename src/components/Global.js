@@ -33,13 +33,16 @@ const Global = () => {
             <p>Here are the current global cases vs deaths.</p>
             <p>Cases: {globData.cases}</p>
             <p>Deaths: {globData.deaths}</p>
-            <Bar data={barData}
-                width={100}
-                height={20}
-                options={{
-                    maintainAspectRatio: true
-                }}
-            />
+            <div style={{ maxWidth: '450px' }}>
+                <Bar data={barData}
+                    width={450}
+                    height={400}
+                    options={{
+                        maintainAspectRatio: true,
+                        responsive: true
+                    }}
+                />
+            </div>
         </>
     )
 }
