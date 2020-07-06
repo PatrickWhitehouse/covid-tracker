@@ -24,13 +24,13 @@ const Countries = () => {
                 {countryList.length > 0 ?
                     countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
 
-                        <div key={country} className="w-1/3 mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900">
-                            <img className="w-full" src={flag} alt={country} />
+                        <div key={country} className="flex flex-col w-1/3 mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900">
+                            <img className="w-full mb-auto" src={flag} alt={country} />
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">{country}</div>
                                 <p className="text-base">
-                                    <span>Current active cases: {active}</span>
-                                    <span>Current death count: {deaths}</span>
+                                    <span className="block">Current active cases: {active}</span>
+                                    <span className="block">Current death count: {deaths}</span>
                                 </p>
                             </div>
                         </div>

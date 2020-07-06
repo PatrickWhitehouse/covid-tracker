@@ -14343,6 +14343,10 @@ video {
   transition-delay: 1000ms;
 }
 
+p {
+  font-size: 1.25rem;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;

@@ -28,8 +28,8 @@ const Global = () => {
         ]
     };
     return (
-        <>
-            <h2>Global data</h2>
+        <section className="my-5">
+            <h2 className="text-3xl">Global data</h2>
             <p>Here are the current global cases vs deaths.</p>
             <p>Cases: {globData.cases}</p>
             <p>Deaths: {globData.deaths}</p>
@@ -43,7 +43,7 @@ const Global = () => {
                     }}
                 />
             </div>
-        </>
+        </section>
     )
 }
 
