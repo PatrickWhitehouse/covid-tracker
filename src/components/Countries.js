@@ -16,15 +16,15 @@ const Countries = () => {
     return (
         <>
             <h2>Current country stats.</h2>
-            <span>Filter country</span>
-            <input type="text" placeholder="Search for a country..." onChange={e => {
+            <span>Use the field below to filter the list below.</span>
+            <input type="text" className="my-3 block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search for a country..." onChange={e => {
                 setSearch(e.target.value)
             }} />
             <div className="flex flex-wrap justify-between my-6">
                 {countryList.length > 0 ?
                     countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
 
-                        <div key={country} className="flex flex-col w-1/3 mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900">
+                        <div key={country} className="flex flex-col w-full mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900 sm:w-1/3">
                             <img className="w-full mb-auto" src={flag} alt={country} />
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">{country}</div>
