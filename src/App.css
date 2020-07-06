@@ -17,3 +17,7 @@
   flex-basis: calc(100% / 4);
   margin: 20px 0;
 }
+
+.card img {
+  margin-bottom: auto;
+}
