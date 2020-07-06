@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <div className="container">
+    <div>
       <h1>Covid 19 tracker</h1>
       <p>This tracker uses the data from the following API - https://disease.sh/v3/covid-19/. This means that the data used may not be 100% accurate.</p>
       <Global />
