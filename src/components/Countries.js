@@ -20,16 +20,18 @@ const Countries = () => {
             <input type="text" placeholder="Search for a country..." onChange={e => {
                 setSearch(e.target.value)
             }} />
-            {countryList.length > 0 ?
-                countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
-                    <div key={country}>
-                        <span>{country}</span>
-                        <span>{active}</span>
-                        <span>{deaths}</span>
-                        <span><img src={flag} alt={country} /></span>
-                    </div>
-                ))
-                : 'Fetching data...'}
+            <div className="card__wrapper">
+                {countryList.length > 0 ?
+                    countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
+                        <div key={country} className="card">
+                            <img src={flag} alt={country} />
+                            <span>{country}</span>
+                            <span>Current active cases: {active}</span>
+                            <span>Current death count: {deaths}</span>
+                        </div>
+                    ))
+                    : 'Fetching data...'}
+            </div>
         </>
     )
 }
