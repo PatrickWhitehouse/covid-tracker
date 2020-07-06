@@ -12,7 +12,6 @@ const Global = () => {
         };
         globalData();
     }, []);
-
     const barData = {
         labels: ['Cases', 'Deaths'],
         datasets: [

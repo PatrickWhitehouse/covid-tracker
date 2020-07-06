@@ -1,6 +1,7 @@
 import React from "react";
 import Global from './components/Global';
 import Countries from './components/Countries';
+import Continents from './components/Continents';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <p>This tracker uses the data from the following API - https://disease.sh/v3/covid-19/. This means that the data used may not be 100% accurate.</p>
       </div>
       <Global />
+      <Continents />
       <Countries />
     </div>
   );
