@@ -11,15 +11,12 @@ const Countries = () => {
         };
         myData();
     }, []);
-
-
-    console.log(countryList);
     return (
         <>
             <h2>Current country stats.</h2>
             {countryList.length > 0 ?
                 countryList.map(({ country, active, deaths, countryInfo: { flag } }) => (
-                    <div>
+                    <div key={country}>
                         <span>{country}</span>
                         <span>{active}</span>
                         <span>{deaths}</span>
