@@ -17,7 +17,7 @@ const Countries = () => {
         <>
             <h2>Current country stats.</h2>
             <span>Filter country</span>
-            <input type="text" onChange={e => {
+            <input type="text" placeholder="Search for a country..." onChange={e => {
                 setSearch(e.target.value)
             }} />
             {countryList.length > 0 ?
@@ -26,7 +26,7 @@ const Countries = () => {
                         <span>{country}</span>
                         <span>{active}</span>
                         <span>{deaths}</span>
-                        <span><img src={flag} alt="" /></span>
+                        <span><img src={flag} alt={country} /></span>
                     </div>
                 ))
                 : 'Fetching data...'}
