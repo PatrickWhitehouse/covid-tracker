@@ -1,5 +1,4 @@
 import React from "react";
-import './App.css';
 import Global from './components/Global';
 import Countries from './components/Countries';
 
