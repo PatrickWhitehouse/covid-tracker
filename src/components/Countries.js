@@ -4,6 +4,7 @@ import Axios from "axios";
 const Countries = () => {
 
     const [countryList, setList] = useState([]);
+    const [searchValue, setSearch] = useState('');
     useEffect(() => {
         const myData = async () => {
             const { data } = await Axios.get('https://disease.sh/v3/covid-19/countries');
@@ -11,11 +12,16 @@ const Countries = () => {
         };
         myData();
     }, []);
+
     return (
         <>
             <h2>Current country stats.</h2>
+            <span>Filter country</span>
+            <input type="text" onChange={e => {
+                setSearch(e.target.value)
+            }} />
             {countryList.length > 0 ?
-                countryList.map(({ country, active, deaths, countryInfo: { flag } }) => (
+                countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
                     <div key={country}>
                         <span>{country}</span>
                         <span>{active}</span>
