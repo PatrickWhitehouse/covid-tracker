@@ -6,6 +6,7 @@ const Countries = () => {
     const [countryList, setList] = useState([]);
     const [searchValue, setSearch] = useState('');
     const [limit, setLimit] = useState(6);
+    const [disabledButton, setDisabledButton] = useState(false);
 
     useEffect(() => {
         const myData = async () => {
@@ -39,9 +40,10 @@ const Countries = () => {
                     ))
                     : 'Fetching data...'}
             </div>
-            <button className="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onClick={e => {
+            <button className={`w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${disabledButton ? 'opacity-50 cursor-not-allowed' : ''}`} onClick={e => {
                 setLimit(countryList.length);
-            }}>
+                setDisabledButton(!disabledButton);
+            }} disabled={disabledButton}>
                 {limit < countryList.length ? 'Load all countries...' : 'All countries loaded'}
             </button>
         </>
