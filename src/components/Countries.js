@@ -5,6 +5,8 @@ const Countries = () => {
 
     const [countryList, setList] = useState([]);
     const [searchValue, setSearch] = useState('');
+    const [limit, setLimit] = useState(6);
+
     useEffect(() => {
         const myData = async () => {
             const { data } = await Axios.get('https://disease.sh/v3/covid-19/countries');
@@ -22,7 +24,7 @@ const Countries = () => {
             }} />
             <div className="flex flex-wrap justify-between my-6">
                 {countryList.length > 0 ?
-                    countryList.filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
+                    countryList.slice(0, limit).filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
 
                         <div key={country} className="flex flex-col w-full mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900 sm:w-1/3">
                             <img className="w-full mb-auto" src={flag} alt={country} />
@@ -37,6 +39,11 @@ const Countries = () => {
                     ))
                     : 'Fetching data...'}
             </div>
+            <button className="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onClick={e => {
+                setLimit(countryList.length);
+            }}>
+                {limit < countryList.length ? 'Load all countries...' : 'All countries loaded'}
+            </button>
         </>
     )
 }

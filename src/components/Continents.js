@@ -42,7 +42,11 @@ const Continents = () => {
             <h2>Data for each continent</h2>
             <p>Below is a chart which outlines the number of cases per continent.</p>
             <div className="bg-white py-6">
-                <Pie data={pieData} />
+                <Pie data={pieData}
+                    options={{
+                        maintainAspectRatio: true,
+                        responsive: true
+                    }} />
             </div>
         </>
     )
