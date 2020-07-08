@@ -32,8 +32,8 @@ const Countries = () => {
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">{country}</div>
                                 <p className="text-base">
-                                    <span className="block">Current active cases: {active}</span>
-                                    <span className="block">Current death count: {deaths}</span>
+                                    <span className="block text-blue-800">Current active cases: {active}</span>
+                                    <span className="block text-red-800">Current death count: {deaths}</span>
                                 </p>
                             </div>
                         </div>
