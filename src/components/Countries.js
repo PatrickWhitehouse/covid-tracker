@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
+import CountUp from 'react-countup';
 
 
 const Countries = () => {
@@ -8,6 +9,7 @@ const Countries = () => {
     const [searchValue, setSearch] = useState('');
     const [limit, setLimit] = useState(6);
     const [disabledButton, setDisabledButton] = useState(false);
+    const [count, setCount] = useState(false)
 
     useEffect(() => {
         const myData = async () => {
@@ -16,7 +18,6 @@ const Countries = () => {
         };
         myData();
     }, []);
-
     return (
         <section className="my-5">
             <h2 className="text-3xl">Individual Country Data</h2>
@@ -33,9 +34,9 @@ const Countries = () => {
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">{country}</div>
                                 <p className="text-base">
-                                    <span className="block text-blue-800">Current active cases: {active}</span>
-                                    <span className="block text-red-800">Current death count:  {deaths}</span>
-                                    <span className="block text-green-800 font-semibold">Recovered:  {recovered}</span>
+                                    <span className="block text-blue-800">Current active cases:  {count === true ? active : <CountUp end={active} />}</span>
+                                    <span className="block text-red-800">Current death count:  {count === true ? deaths : <CountUp end={deaths} />}</span>
+                                    <span className="block text-green-800 font-semibold">Recovered:  {count === true ? recovered : <CountUp end={recovered} onEnd={() => setCount(true)} />}</span>
                                 </p>
                             </div>
                         </div>
