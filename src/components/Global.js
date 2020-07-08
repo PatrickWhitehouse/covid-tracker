@@ -27,7 +27,7 @@ const Global = () => {
         ]
     };
     return (
-        <section className="my-5 inline-block w-full md:w-1/2">
+        <section className="my-5 inline-block w-full lg:w-1/2">
             <h2>World Data</h2>
             <div style={{ maxWidth: '450px' }} className="bg-white">
                 <Bar data={barData}
