@@ -32,7 +32,7 @@ const Global = () => {
             <p>Here are the current global cases vs deaths.</p>
             <p>Cases: {globData.cases}</p>
             <p>Deaths: {globData.deaths}</p>
-            <div style={{ maxWidth: '450px' }}>
+            <div style={{ maxWidth: '450px' }} className="bg-white">
                 <Bar data={barData}
                     width={450}
                     height={400}
