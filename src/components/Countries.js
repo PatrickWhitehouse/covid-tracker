@@ -21,10 +21,12 @@ const Countries = () => {
     return (
         <section className="my-5">
             <h2 className="text-3xl">Individual Country Data</h2>
-            <p>Below is each country with their current cases, deaths and also recoveries. Use the input field to filter down to your desired country.</p>
-            <input type="text" className="my-3 block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search for a country..." onChange={e => {
+            <p>Below is each country with their current cases, deaths and also recoveries.</p>
+
+            {disabledButton ? <><p>Use the input field to filter down to your desired country once <span className="font-semibold">all</span> countries have been loaded.</p> <input type="text" className="my-3 block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search for a country..." onChange={e => {
                 setSearch(e.target.value)
-            }} />
+            }} /></> : ''}
+
             <div className="flex flex-wrap justify-center sm:justify-between my-6">
                 {countryList.length > 0 ?
                     countryList.slice(0, limit).filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, recovered, countryInfo: { flag } }) => (
