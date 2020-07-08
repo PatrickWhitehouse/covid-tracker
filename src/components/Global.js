@@ -27,11 +27,8 @@ const Global = () => {
         ]
     };
     return (
-        <section className="my-5">
-            <h2 className="text-3xl">Global data</h2>
-            <p>Here are the current global cases vs deaths.</p>
-            <p>Cases: {globData.cases}</p>
-            <p>Deaths: {globData.deaths}</p>
+        <section className="my-5 inline-block w-full md:w-1/2">
+            <h2>World Data</h2>
             <div style={{ maxWidth: '450px' }} className="bg-white">
                 <Bar data={barData}
                     width={450}

@@ -17,7 +17,7 @@ const Countries = () => {
     }, []);
 
     return (
-        <>
+        <section className="my-5">
             <h2>Current country stats.</h2>
             <span>Use the field below to filter the list below.</span>
             <input type="text" className="my-3 block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search for a country..." onChange={e => {
@@ -46,7 +46,7 @@ const Countries = () => {
             }} disabled={disabledButton}>
                 {limit < countryList.length ? 'Load all countries...' : 'All countries loaded'}
             </button>
-        </>
+        </section>
     )
 }
 
