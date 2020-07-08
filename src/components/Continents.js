@@ -39,7 +39,7 @@ const Continents = () => {
     }
     return (
         <section className="my-5 inline-block w-full lg:w-1/2">
-            <h2>Data for each continent</h2>
+            <h2>Cases for each continent</h2>
             <div className="bg-white py-6">
                 <Pie data={pieData}
                     width={450}
