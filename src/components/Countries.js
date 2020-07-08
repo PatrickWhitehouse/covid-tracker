@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
+import CountUp from 'react-countup';
 
 const Countries = () => {
 
@@ -18,22 +19,24 @@ const Countries = () => {
 
     return (
         <section className="my-5">
-            <h2>Current country stats.</h2>
+            <h2 className="text-3xl">Individual Country Data</h2>
+            <p>Below is each country with their current cases, deaths and also recoveries. Use the input field to filter down to your desired country.</p>
             <span>Use the field below to filter the list below.</span>
             <input type="text" className="my-3 block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search for a country..." onChange={e => {
                 setSearch(e.target.value)
             }} />
             <div className="flex flex-wrap justify-center sm:justify-between my-6">
                 {countryList.length > 0 ?
-                    countryList.slice(0, limit).filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, countryInfo: { flag } }) => (
+                    countryList.slice(0, limit).filter(({ country }) => country.toLowerCase().includes(searchValue.toLowerCase())).map(({ country, active, deaths, recovered, countryInfo: { flag } }) => (
 
                         <div key={country} className="flex flex-col w-full mb-6 max-w-sm rounded overflow-hidden shadow-lg bg-white text-gray-900 sm:w-5/12 xl:w-1/3">
                             <img className="w-full mb-auto" src={flag} alt={country} />
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">{country}</div>
                                 <p className="text-base">
-                                    <span className="block text-blue-800">Current active cases: {active}</span>
-                                    <span className="block text-red-800">Current death count: {deaths}</span>
+                                    <span className="block text-blue-800">Current active cases:  <CountUp end={active} separator="," /></span>
+                                    <span className="block text-red-800">Current death count:  <CountUp end={deaths} separator="," delay="2" /></span>
+                                    <span className="block text-green-800 font-semibold">Recovered:  <CountUp end={recovered} separator="," delay="4" /></span>
                                 </p>
                             </div>
                         </div>
