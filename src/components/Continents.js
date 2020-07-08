@@ -38,9 +38,9 @@ const Continents = () => {
         ]
     }
     return (
-        <section className="my-5 inline-block w-full lg:w-1/2">
+        <section className="my-5 inline-block w-full lg:w-1/2 p-2">
             <h2>Cases for each continent</h2>
-            <div className="bg-white py-6">
+            <div className="bg-white p-6">
                 <Pie data={pieData}
                     width={450}
                     height={400}
